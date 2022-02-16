@@ -5,7 +5,7 @@ import CatalogComponent from "./components/CatalogComponent";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar bg="dark" variant="dark">
         <div className="container">
           <Navbar.Brand href="/">

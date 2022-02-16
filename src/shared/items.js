@@ -1,5 +1,6 @@
 export const ITEMS = [
   {
+    id:0,
     name: 'Certificado de Diplomado',
     image: '/assets/images/certificadoDiplomado.png',
     category: 'certificado',
@@ -45,6 +46,7 @@ export const ITEMS = [
     ]
   },
   {
+    id:1,
     name: 'Certificado de Maestria',
     image: '/assets/images/certificadoMaestria.png',
     category: 'certificado',
@@ -91,6 +93,7 @@ export const ITEMS = [
     ]
   },
   {
+    id:2,
     name: 'Certificado Supletorio',
     image: '/assets/images/certificadoSupletorio.png',
     category: 'certificado',
@@ -136,6 +139,7 @@ export const ITEMS = [
     ]
   },
   {
+    id:3,
     name: 'Certificado de Doble Titulación',
     image: '/assets/images/certificadoDobleTitulacion.png',
     category: 'certificado',

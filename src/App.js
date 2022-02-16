@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {Navbar} from "react-bootstrap";
+import CatalogComponent from "./components/CatalogComponent";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           </Navbar.Brand>
         </div>
       </Navbar>
+      <CatalogComponent/>
     </div>
   );
 }

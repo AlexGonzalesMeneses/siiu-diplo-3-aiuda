@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import {Card} from "react-bootstrap";
+import ItemDetail from "./ItemdetailComponent";
 
 class CatalogComponent extends Component {
 
   constructor(props, context) {
     super(props, context);
-    console.log("Catalog constructor() es invocado");
     this.state = {
       selectedItem: null
     }
   };
 
   render() {
-    console.log("Catalog render() es invocado");
     let catalog = this.props.items.map(item => {
       return (
         <div key={item.id} className="col-12 col-md-5 m-1">
@@ -36,7 +35,7 @@ class CatalogComponent extends Component {
           {catalog}
         </div>
         <div className="row">
-          {this.renderItem(this.state.selectedItem)}
+          <ItemDetail selectedItem={this.state.selectedItem}/>
         </div>
       </div>
     );
@@ -46,35 +45,6 @@ class CatalogComponent extends Component {
     this.setState({
       selectedItem: item
     })
-  }
-
-  renderItem(item) {
-    if (item != null) {
-      return (
-        <div key={item.id} className="col-8 m-auto">
-          <Card>
-            <Card.Header>
-              <Card.Title>{item.name}</Card.Title>
-            </Card.Header>
-            <Card.Img style={{width: '80%'}} className='m-4' src={item.image} alt={item.name}/>
-            <Card.Body>
-              <Card.Text>
-                {item.requisites.map((requisite, index) => (<span key={index}>{requisite}</span>))}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-
-        </div>
-      );
-
-    } else {
-      return (
-        <div/>
-      );
-    }
-  }
-  componentDidMount() {
-    console.log("Catalog componentDidMount() es invocado");
   }
 }
 

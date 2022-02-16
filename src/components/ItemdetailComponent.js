@@ -9,7 +9,7 @@ class ItemDetail extends Component {
           {this.renderItem(this.props.selectedItem)}
         </div>
         <div className="col-12 col-md-5 m-1">
-          {this.renderComments(this.props.selectedItem.comments)}
+          {this.renderComments(this.props.selectedItem != null ? this.props.selectedItem.comments : null)}
         </div>
       </div>
     );
@@ -46,12 +46,12 @@ class ItemDetail extends Component {
       let commentsElements = comments.map((comment) => {
         return (
           <div key={comment.id}>
-            <Card>
-              <Card.Body>
-                <Card.Text>{comment.comment}</Card.Text>
-                <Card.Text>-- {comment.author} , {comment.date}</Card.Text>
-              </Card.Body>
-            </Card>
+            <li key={comment.id} className="list-unstyled">
+              <ul className="list-unstyled">
+                <li>{comment.comment}</li>
+                <li>-- {comment.author} , {comment.date}</li>
+              </ul>
+            </li>
           </div>
         )
       });

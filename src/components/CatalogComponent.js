@@ -12,15 +12,15 @@ class CatalogComponent extends Component {
   render() {
     let catalog = this.props.items.map(item => {
       return (
-        <div key={item.id} className="col-6 mt-5">
-          <Card style={{width: '18rem'}}>
+        <div key={item.id} className="col-12 col-md-5 m-1">
+          <Card text='primary' style={{width: '90%'}}
+          className='bg-dark bg-opacity-25'>
             <Card.Header>
               <Card.Img src={item.image} alt={item.name}/>
+              <Card.ImgOverlay>
+                <Card.Title>{item.name}</Card.Title>
+              </Card.ImgOverlay>
             </Card.Header>
-            <Card.Body className="ml-5">
-              <Card.Subtitle>{item.name}</Card.Subtitle>
-              <p>{item.description}</p>
-            </Card.Body>
           </Card>
         </div>
       );

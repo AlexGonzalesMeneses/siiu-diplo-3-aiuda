@@ -1,8 +1,11 @@
-import {Navbar} from "react-bootstrap";
-import CatalogComponent from "./components/CatalogComponent";
+import CatalogComponent from "./../components/CatalogComponent";
 import React, {Component} from "react";
-import {ITEMS} from "./shared/items";
-import ItemDetail from "./components/ItemdetailComponent";
+import {ITEMS} from "./../shared/items";
+import ItemDetail from "./../components/ItemdetailComponent";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro';
+import Header from "./HeaderComponent";
+import Footer from "./FooterComponent";
 
 class Main extends Component {
 
@@ -30,19 +33,22 @@ class Main extends Component {
     console.log("Main render es invocado");
     return (
       <div>
-        <Navbar bg="dark" variant="dark">
-          <div className="container">
-            <Navbar.Brand href="/">
-              Sistema de Integrado Informacion Universitario
-            </Navbar.Brand>
-          </div>
-        </Navbar>
+        <div >
+          <FontAwesomeIcon />
+          <FontAwesomeIcon icon={solid('user-secret')} size='xs'/>
+          <FontAwesomeIcon icon={regular('clock')} size='lg' />
+          <FontAwesomeIcon icon={brands('twitter')} size='6x' rotation={90} spin/>
+
+        </div>
+
+        <Header/>
         <CatalogComponent items={this.state.items}
                           onClick={(itemId) => {
                             this.onItemSelect(itemId)
                           }}
         />
         <ItemDetail item={this.state.items.filter((item) => item.id === this.state.selectedItem)[0]} />
+        <Footer/>
       </div>
     );
   }

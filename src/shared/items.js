@@ -1,5 +1,6 @@
 export const ITEMS = [
   {
+    id: 700,
     name: 'Certificado de Diplomado',
     image: '/assets/images/certificadoDiplomado.png',
     category: 'certificado',
@@ -13,30 +14,35 @@ export const ITEMS = [
     ],
     comments: [
       {
+        id: 10,
         rating: 5,
         comment: "No existe señaletica para dirigirse a la ventanilla de revision de documentos fisicos",
         author: "Ana Castro",
         date: "2021-10-16T17:57:28.556094Z"
       },
       {
+        id: 11,
         rating: 4,
         comment: "El horario de recojo de documentos deberia extederse tambien por la tarde",
         author: "Tania Barrancos",
         date: "2021-09-05T17:57:28.556094Z"
       },
       {
+        id: 12,
         rating: 3,
         comment: "El costo deberia estar incluido en las cuotas del programa",
         author: "Michael Rodriguez",
         date: "2020-02-13T17:57:28.556094Z"
       },
       {
+        id: 13,
         rating: 4,
         comment: "Hay mucha demora en la firma de autoridades",
         author: "Diana Cardozo",
         date: "2020-12-02T17:57:28.556094Z"
       },
       {
+        id: 14,
         rating: 2,
         comment: "Deberian permitir el tramite con apoderados legales",
         author: "Mario Gutierrez",
@@ -45,6 +51,7 @@ export const ITEMS = [
     ]
   },
   {
+    id: 701,
     name: 'Certificado de Maestria',
     image: '/assets/images/certificadoMaestria.png',
     category: 'certificado',
@@ -59,30 +66,35 @@ export const ITEMS = [
     ],
     comments: [
       {
+        id: 20,
         rating: 4,
         comment: "El acta de defensa no deberia ser requerido sino mas bien actualizado en el sistema",
         author: "Pedro Luna",
         date: "2022-02-16T17:57:28.556094Z"
       },
       {
+        id: 21,
         rating: 4,
         comment: "El horario de recojo de documentos deberia extederse tambien por la tarde",
         author: "Tania Barrancos",
         date: "2021-09-05T17:57:28.556094Z"
       },
       {
+        id: 22,
         rating: 3,
         comment: "El costo deberia estar incluido en las cuotas del programa",
         author: "Michael Rodriguez",
         date: "2020-02-13T17:57:28.556094Z"
       },
       {
+        id: 23,
         rating: 4,
         comment: "Hay mucha demora en la firma de autoridades",
         author: "Diana Cardozo",
         date: "2020-12-02T17:57:28.556094Z"
       },
       {
+        id: 24,
         rating: 2,
         comment: "Deberian permitir el tramite con apoderados legales",
         author: "Mario Gutierrez",
@@ -91,6 +103,7 @@ export const ITEMS = [
     ]
   },
   {
+    id: 702,
     name: 'Certificado Supletorio',
     image: '/assets/images/certificadoSupletorio.png',
     category: 'certificado',
@@ -104,30 +117,35 @@ export const ITEMS = [
     ],
     comments: [
       {
+        id:0,
         rating: 5,
         comment: "La demanda deberia tener validez de 1 semanas y no 24 horas",
         author: "Daniel Marquez",
         date: "2021-11-17T17:57:28.556094Z"
       },
       {
+        id:1,
         rating: 4,
         comment: "El horario de recojo de documentos deberia extederse tambien por la tarde",
         author: "Tania Barrancos",
         date: "2021-09-05T17:57:28.556094Z"
       },
       {
+        id:2,
         rating: 3,
         comment: "El costo deberia estar incluido en las cuotas del programa",
         author: "Michael Rodriguez",
         date: "2020-02-13T17:57:28.556094Z"
       },
       {
+        id:3,
         rating: 4,
         comment: "Hay mucha demora en la firma de autoridades",
         author: "Diana Cardozo",
         date: "2020-12-02T17:57:28.556094Z"
       },
       {
+        id:4,
         rating: 2,
         comment: "Deberian permitir el tramite con apoderados legales",
         author: "Mario Gutierrez",
@@ -136,6 +154,7 @@ export const ITEMS = [
     ]
   },
   {
+    id: 703,
     name: 'Certificado de Doble Titulación',
     image: '/assets/images/certificadoDobleTitulacion.png',
     category: 'certificado',
@@ -148,30 +167,35 @@ export const ITEMS = [
     ],
     comments: [
       {
+        id: 200,
         rating: 2,
         comment: "El tiempo de registro en DDigital deberia ser mas corto",
         author: "Milton Chura",
         date: "2021-10-16T17:57:28.556094Z"
       },
       {
+        id: 92,
         rating: 4,
         comment: "El horario de recojo de documentos deberia extederse tambien por la tarde",
         author: "Tania Barrancos",
         date: "2021-09-05T17:57:28.556094Z"
       },
       {
+        id: 835,
         rating: 3,
         comment: "El costo deberia estar incluido en las cuotas del programa",
         author: "Michael Rodriguez",
         date: "2020-02-13T17:57:28.556094Z"
       },
       {
+        id: 836,
         rating: 4,
         comment: "Hay mucha demora en la firma de autoridades",
         author: "Diana Cardozo",
         date: "2020-12-02T17:57:28.556094Z"
       },
       {
+        id: 837,
         rating: 2,
         comment: "Deberian permitir el tramite con apoderados legales",
         author: "Mario Gutierrez",

@@ -46,19 +46,19 @@ class ItemDetail extends Component {
       let commentElements = comments.map((comment) => {
           return (
             <div key={comment.id}>
-              <Card>
-                <Card.Body>
-                  <Card.Text>{comment.comment}</Card.Text>
-                  <Card.Text>--{comment.author} --{comment.date}</Card.Text>
-                </Card.Body>
-              </Card>
+              <li className='list-unstyled'>
+                <ul className='list-unstyled'>
+                  <li>{comment.comment}</li>
+                  <li>--{comment.author} --{comment.date}</li>
+                </ul>
+              </li>
             </div>
           )
         }
       );
       return (
         <div>
-          <h3>Commentarios</h3>
+          <h3>Comentarios</h3>
           {commentElements}
         </div>
 

@@ -12,10 +12,10 @@ class Header extends Component {
             <Navbar.Brand href="/">Sistema de Integrado Informacion Universitario</Navbar.Brand>
           </div>
         </Navbar>
-        <div className='bg-primary fa-inverse'>
+        <div className='bg-primary bg-opacity-75 fa-inverse jumbotron'>
           <div className="container">
             <div className="row row-header">
-              <div className="col-12 col-sm-6">
+              <div className="col-12">
                 <h1>Sistema Integrado de Informacion Universitario</h1>
                 <p>El SIIU integra la informacion de los diferentes sistemas de la UMSS!!!</p>
               </div>

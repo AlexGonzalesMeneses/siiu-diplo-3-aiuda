@@ -1,6 +1,6 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro';
+import {solid, regular, brands} from '@fortawesome/fontawesome-svg-core/import.macro';
 
 function Footer(props) {
   return (
@@ -14,35 +14,34 @@ function Footer(props) {
               <li><a href="#">About</a></li>
               <li><a href="#">Catalog</a></li>
               <li><a href="#">Contact</a></li>
-              <li><a href="contactus.html">Contact</a></li>
             </ul>
           </div>
           <div className="col-7 col-sm-5">
-            <h5>Our Address</h5>
+            <h5>Nuestra direccion</h5>
             <address>
-              121, Dr. Drive<br/>
-              San Jose, California<br/>
-              MOUNTAIN VIEW<br/>
-              <FontAwesomeIcon icon={solid('phone')} size='lg'/>: +1 1234 5678<br/>
-              <FontAwesomeIcon icon={solid('fax')} size='lg'/>: +1 8765 4321<br/>
-              <FontAwesomeIcon icon={solid('envelope')} size='lg'/>: <a href="mailto:siiuinfo@siiu.net">
-              siiuinfo@siiu.net</a>
+              Av. Ballivián esquina Reza #591<br/>
+              Cochabamba<br/>
+              BOLIVIA<br/>
+              <FontAwesomeIcon icon={solid('phone')} size='lg'/>: +591 4220717<br/>
+              <FontAwesomeIcon icon={solid('fax')} size='lg'/>: +591 4522114<br/>
+              <FontAwesomeIcon icon={solid('envelope')} size='lg'/>: <a
+              href="mailto:info@siiu.umss.edu.bo">info@siiu.umss.edu.bo</a>
             </address>
           </div>
-          <div className="col-12 col-sm-4 align-self-center">
-            <div className="text-center">
+          <div className="col-12 col-sm-4 align-self-center"> {/*alineado vertical*/}
+            <div className="text-center"> {/*alineado horizontal*/}
               <a className="btn btn-social-icon btn-google" href="http://google.com/+">
-                <FontAwesomeIcon icon={brands('google-plus')} size='lg'/>
-              </a>
-              <a className="btn btn-social-icon btn-facebook"
-                 href="http://www.facebook.com/profile.php?id=">
-                <FontAwesomeIcon icon={brands('facebook')} size='lg'/>
-              </a>
-              <a href="http://www.linkedin.com/in/">
+                <FontAwesomeIcon icon={brands('google-plus')} size='lg'/></a>
+              <a className="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id=">
+                <FontAwesomeIcon icon={brands('facebook')} size='lg'/></a>
+              <a className='btn btn-social-icon' href="http://www.linkedin.com/in/">
                 <FontAwesomeIcon icon={brands('linkedin')} size='lg'/></a>
-              <a href="http://twitter.com/"><FontAwesomeIcon icon={brands('twitter')} size='lg'/></a>
-              <a  href="http://youtube.com/"><FontAwesomeIcon icon={brands('youtube')} size='lg'/></a>
-              <a className="btn btn-social-icon" href="mailto:"><FontAwesomeIcon icon={solid('envelope')} size='lg'/></a>
+              <a className='btn btn-social-icon' href="http://twitter.com/">
+                <FontAwesomeIcon icon={brands('twitter')} size='lg'/></a>
+              <a className='btn btn-social-icon' href="http://youtube.com/">
+                <FontAwesomeIcon icon={brands('youtube')} size='lg'/></a>
+              <a className="btn btn-social-icon" href="mailto:">
+                <FontAwesomeIcon icon={solid('envelope')} size='lg'/></a>
             </div>
           </div>
         </div>

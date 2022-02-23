@@ -12,6 +12,7 @@ class Main extends Component {
       items: ITEMS,
       selectedItemId: null
     }
+    console.log("Main constructor es invocado");
   }
 
   onItemSelect(item) {
@@ -21,6 +22,7 @@ class Main extends Component {
   }
 
   render() {
+    console.log("Main render es invocado");
     return (
       <div className="App">
         <Navbar bg="dark" variant="dark">
@@ -37,6 +39,10 @@ class Main extends Component {
         <ItemDetail item={this.state.items.filter((item)=>item.id===this.state.selectedItemId)[0]}/>
       </div>
     );
+  }
+
+  componentDidMount() {
+    console.log("Main componentDidMount es invocado");
   }
 }
 

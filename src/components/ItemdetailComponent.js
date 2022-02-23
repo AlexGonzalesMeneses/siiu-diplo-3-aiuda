@@ -74,6 +74,14 @@ class ItemDetail extends Component {
       );
     }
   }
+  componentDidMount() {
+    console.log("ItemDetail componentDidMount es invocado");
+  }
+
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("ItemDetail componentDidUpdate es invocado");
+  }
 }
 
 export default ItemDetail;

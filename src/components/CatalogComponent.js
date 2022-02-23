@@ -15,7 +15,7 @@ function RenderMenuItem({item, onClick}) {
   )
 }
 
-const CatalogComponent = (props) => {
+const Catalog = (props) => {
   let catalog = props.items.map(item => {
     return (
       <div key={item.id} className="col-12 col-md-5 m-1">
@@ -33,4 +33,4 @@ const CatalogComponent = (props) => {
 }
 
 
-export default CatalogComponent;
+export default Catalog;

@@ -7,9 +7,9 @@ class Header extends Component {
       /*agrupa varios elementos sin necesidad de un div su forma abreviada es <></>*/
 
       <React.Fragment>
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" expand='md'>
           <div className="container">
-            <Navbar.Brand href="/">Sistema de Integrado Informacion Universitario</Navbar.Brand>
+            <Navbar.Brand className="me-auto" href="/">SIIU</Navbar.Brand>
           </div>
         </Navbar>
         <div className='bg-primary bg-opacity-75 fa-inverse jumbotron'>

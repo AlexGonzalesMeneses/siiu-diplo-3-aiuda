@@ -1,22 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Card} from "react-bootstrap";
 
-class ItemDetail extends Component {
-  render() {
+const ItemDetail = props => {
     return (
       <div className='row'>
         <div className='col-12 col-md-5 m-1'>
-          {this.renderItem(this.props.item)}
+          {/*{this.renderItem(this.props.item)}*/}
+          <RenderItem item={props.item}/>
         </div>
         <br/>
         <div className='col-12 col-md-5 m-1'>
-          {this.renderComments(this.props.item?.comments)}
+          {/*{this.renderComments(this.props.item?.comments)}*/}
+          <RenderComments comments={props.item?.comments}/>
         </div>
       </div>
     );
-  }
 
-  renderItem(item) {
+  function RenderItem({item}) {// JS destructuring props
     if (item != null) {
       return (
         <div key={item.id} className="col-8 m-auto">
@@ -41,7 +41,7 @@ class ItemDetail extends Component {
     }
   }
 
-  renderComments(comments) {
+  function RenderComments({comments}) {
     if (comments != null) {
       let commentElements = comments.map((comment) => {
           return (
@@ -74,14 +74,6 @@ class ItemDetail extends Component {
       );
     }
   }
-  componentDidMount() {
-    console.log("ItemDetail componentDidMount es invocado");
-  }
-
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log("ItemDetail componentDidUpdate es invocado");
-  }
-}
+};
 
 export default ItemDetail;

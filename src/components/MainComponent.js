@@ -1,8 +1,9 @@
-import {Navbar} from "react-bootstrap";
 import CatalogComponent from "./CatalogComponent";
 import {Component} from "react";
 import {ITEMS} from "./../shared/items";
 import ItemDetail from "./ItemdetailComponent";
+import Header from "./HeaderComponent";
+import Footer from "./FooterComponent";
 
 class Main extends Component {
 
@@ -25,18 +26,13 @@ class Main extends Component {
     console.log("Main render es invocado");
     return (
       <div className="App">
-        <Navbar bg="dark" variant="dark">
-          <div className="container">
-            <Navbar.Brand href="/">
-              Sistema de Integrado Informacion Universitario
-            </Navbar.Brand>
-          </div>
-        </Navbar>
+        <Header/>
         <CatalogComponent items={this.state.items}
                           onClick={(itemId) => {
                             this.onItemSelect(itemId)
                           }}/>
         <ItemDetail item={this.state.items.filter((item)=>item.id===this.state.selectedItemId)[0]}/>
+        <Footer/>
       </div>
     );
   }

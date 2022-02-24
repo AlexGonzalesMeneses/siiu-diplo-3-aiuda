@@ -1,9 +1,22 @@
 import React from 'react';
-import {Card} from "react-bootstrap";
+import {Breadcrumb, Card} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const ItemDetail = (props) => {
   return (
-    <div className="row">
+    <div className="container">
+      <div className="row">
+        <Breadcrumb>
+          <Breadcrumb.Item><Link to="/catalog">Catalog</Link></Breadcrumb.Item>
+          <Breadcrumb.Item active>{props.item.name}</Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="col-12">
+          <h3>{props.item.name}</h3>
+          <hr/>
+        </div>
+      </div>
+
+      <div className="row">
       <div className="col-12 col-md-5 m-1">
         {/*{this.renderItem(this.props.item)}*/}
         <RenderItem item={props.item}/>
@@ -13,6 +26,7 @@ const ItemDetail = (props) => {
         {/*<RenderComments comments={props.item != null ? props.item.comments : null}/>*/}
         <RenderComments comments={ props.item?.comments}/>
       </div>
+    </div>
     </div>
   );
 }

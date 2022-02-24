@@ -8,6 +8,7 @@ import Catalog from "./CatalogComponent";
 import Contact from "./ContactComponent";
 import {COMMENTS} from "../shared/comments";
 import {EMPLOYEES} from "../shared/employees";
+import ItemDetail from "./ItemdetailComponent";
 
 class Main extends Component {
 
@@ -34,6 +35,13 @@ class Main extends Component {
       );
     };
 
+    const ItemWithId = ({match}) => {
+      return(
+        <ItemDetail item={this.state.items.filter((item) => item.id === parseInt(match.params.itemId,10))[0]}
+                    comments={this.state.comments.filter((comment) => comment.itemId === parseInt(match.params.itemId,10))} />
+      );
+    };
+
     return (
       <div>
         <Header/>
@@ -43,7 +51,9 @@ class Main extends Component {
             employee={this.state.employees.filter(employee => employee.featured)[0]}
           />
           }/>
-          <Route exact path='/catalog' element={<Catalog items={this.state.items}/>}/>
+          <Route exact path='/catalog' element={<Catalog items={this.state.items}/>}>
+            <Route path=':itemId' component={ItemWithId}/>
+          </Route>
           <Route exact path='/contactus' element={<Contact/>}/>
           <Route
             path="*"

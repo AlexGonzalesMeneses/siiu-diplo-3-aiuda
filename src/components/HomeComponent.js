@@ -1,14 +1,32 @@
 import React from 'react';
-import {Container} from "react-bootstrap";
+import {Card, Col, Container, Row} from "react-bootstrap";
 
-const Home = () => {
+const Home = (props) => {
   return (
-    <div>
-      <Container>
-        <h4>Home</h4>
-      </Container>
-    </div>
+    <Container>
+      <Row className="align-items-start">
+        <Col xs={12} className="m-1">
+          <RenderCard item={props.item}/>
+        </Col>
+        <Col xs={12} className="m-1">
+          <RenderCard item={props.employee}/>
+        </Col>
+      </Row>
+    </Container>
   );
 };
+
+function RenderCard({item}) {
+  return (
+    <Card>
+      <Card.Img src={item.image} alt={item.name}/>
+      <Card.Body>
+        <Card.Title>{item.name}</Card.Title>
+        {item.jobPosition ? <Card.Subtitle>{item.jobPosition}</Card.Subtitle> : null}
+        <Card.Text>{item.description}</Card.Text>
+      </Card.Body>
+    </Card>
+  );
+}
 
 export default Home;

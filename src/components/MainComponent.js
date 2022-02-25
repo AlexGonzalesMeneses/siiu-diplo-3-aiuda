@@ -1,37 +1,39 @@
-import CatalogComponent from "./CatalogComponent";
 import {Component} from "react";
 import {ITEMS} from "./../shared/items";
-import ItemDetail from "./ItemdetailComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
+import {Route, Routes} from "react-router-dom";
+import Home from "./HomeComponent";
+import Catalog from "./CatalogComponent";
 
 class Main extends Component {
 
   constructor(props, context) {
     super(props, context);
     this.state = {
-      items: ITEMS,
-      selectedItemId: null
+      items: ITEMS
     }
     console.log("Main constructor es invocado");
   }
 
-  onItemSelect(item) {
-    this.setState({
-      selectedItemId: item
-    });
-  }
-
   render() {
     console.log("Main render es invocado");
+    const HomePage = () => {
+      return (
+        <Home/>
+      );
+    };
+
     return (
       <div className="App">
         <Header/>
-        <CatalogComponent items={this.state.items}
-                          onClick={(itemId) => {
-                            this.onItemSelect(itemId)
-                          }}/>
-        <ItemDetail item={this.state.items.filter((item)=>item.id===this.state.selectedItemId)[0]}/>
+        <Routes>
+          <Route path='home' element={<Home/>}/>
+          <Route exact path='catalog' element={<Catalog items={this.state.items}/>}/>
+          <Route
+            path="*"
+            element={<HomePage/>}/>
+        </Routes>
         <Footer/>
       </div>
     );

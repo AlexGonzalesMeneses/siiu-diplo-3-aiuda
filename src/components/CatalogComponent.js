@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card} from "react-bootstrap";
 
-function CatalogComponent({items, onClick}) {
+function Catalog({items, onClick}) {
   let catalog = items.map(item => {
     return (
       <div key={item.id} className="col-12 col-md-5 m-1">
@@ -29,4 +29,4 @@ function CatalogComponent({items, onClick}) {
   );
 }
 
-export default CatalogComponent;
+export default Catalog;

@@ -1,11 +1,23 @@
 import React from 'react';
-import {Col, Container, Row} from "react-bootstrap";
+import {Breadcrumb, Col, Container, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {brands, solid} from '@fortawesome/fontawesome-svg-core/import.macro';
+import {solid, brands} from '@fortawesome/fontawesome-svg-core/import.macro';
+import {Link} from "react-router-dom";
 
 function Contact(props) {
   return (
     <Container>
+      <div className="row">
+        <Breadcrumb>
+          <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
+          <Breadcrumb.Item active>Contact Us</Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="col-12">
+          <h3>Contact Us</h3>
+          <hr />
+        </div>
+      </div>
+
       <Row className="row-content">
         <Col xs={12}>
           <h3>Información de Ubicación</h3>
@@ -41,3 +53,4 @@ function Contact(props) {
 }
 
 export default Contact;
+

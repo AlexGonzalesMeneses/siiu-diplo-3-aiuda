@@ -17,12 +17,12 @@ const Home = (props) => {
 };
 
 function RenderCard({item}) {
-  return (
+  return(
     <Card>
-      <Card.Img src={item.image} alt={item.name}/>
+      <Card.Img src={item.image} alt={item.name} />
       <Card.Body>
         <Card.Title>{item.name}</Card.Title>
-        {item.jobPosition ? <Card.Subtitle>{item.jobPosition}</Card.Subtitle> : null}
+        {item.jobPosition ? <Card.Subtitle>{item.jobPosition}</Card.Subtitle> : null }
         <Card.Text>{item.description}</Card.Text>
       </Card.Body>
     </Card>

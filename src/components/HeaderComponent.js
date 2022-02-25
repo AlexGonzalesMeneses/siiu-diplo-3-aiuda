@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Nav, Navbar} from "react-bootstrap";
+import {Nav, Navbar, Container} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {solid} from '@fortawesome/fontawesome-svg-core/import.macro';
 import {Link} from "react-router-dom";
@@ -8,14 +8,15 @@ class Header extends Component {
   render() {
     return (
       /*agrupa varios elementos sin necesidad de un div su forma abreviada es <></>*/
+
       <React.Fragment>
         <Navbar bg="dark" variant="dark" expand='md' sticky="top" collapseOnSelect>
-          <div className="container">
+          <Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Brand className="p-0" href="/">
-              <img src='/assets/images/logo.png' alt="SIIU" width="50"/>
+              <img src='/assets/images/logo.png' alt="SIIU" width="50" className="d-inline-block align-top"/>
             </Navbar.Brand>
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Collapse id="basic-navbar-nav" >
               <Nav className="me-auto">
                 <Nav.Link href='/home'>
                   <FontAwesomeIcon icon={solid('home')} size='lg'/> Home
@@ -36,7 +37,7 @@ class Header extends Component {
                 </Nav.Item>
               </Nav>
             </Navbar.Collapse>
-          </div>
+          </Container>
         </Navbar>
         <div className='bg-primary bg-opacity-75 fa-inverse jumbotron'>
           <div className="container">

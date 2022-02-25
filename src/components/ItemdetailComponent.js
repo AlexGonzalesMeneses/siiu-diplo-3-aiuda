@@ -1,11 +1,11 @@
 import React from 'react';
-import {Breadcrumb, Card} from "react-bootstrap";
+import {Breadcrumb, Card, Container, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 const ItemDetail = (props) => {
   return (
-    <div className="container">
-      <div className="row">
+    <Container>
+      <Row>
         <Breadcrumb>
           <Breadcrumb.Item><Link to="/catalog">Catalog</Link></Breadcrumb.Item>
           <Breadcrumb.Item active>{props.item.name}</Breadcrumb.Item>
@@ -14,20 +14,20 @@ const ItemDetail = (props) => {
           <h3>{props.item.name}</h3>
           <hr/>
         </div>
-      </div>
+      </Row>
 
       <div className="row">
-      <div className="col-12 col-md-5 m-1">
-        {/*{this.renderItem(this.props.item)}*/}
-        <RenderItem item={props.item}/>
+        <div className="col-12 col-md-5 m-1">
+          {/*{this.renderItem(this.props.item)}*/}
+          <RenderItem item={props.item}/>
+        </div>
+        <div className="col-12 col-md-5 m-1">
+          {/*{this.renderComments(this.props.item != null ? this.props.item.comments : null)}*/}
+          {/*<RenderComments comments={props.item != null ? props.item.comments : null}/>*/}
+          <RenderComments comments={props.item?.comments}/>
+        </div>
       </div>
-      <div className="col-12 col-md-5 m-1">
-        {/*{this.renderComments(this.props.item != null ? this.props.item.comments : null)}*/}
-        {/*<RenderComments comments={props.item != null ? props.item.comments : null}/>*/}
-        <RenderComments comments={ props.item?.comments}/>
-      </div>
-    </div>
-    </div>
+    </Container>
   );
 }
 

@@ -3,6 +3,8 @@ import {ITEMS} from "../shared/items";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {useRouteMatch} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import Home from "./HomeComponent";
 import Catalog from "./CatalogComponent";
 import Contact from "./ContactComponent";
@@ -29,16 +31,18 @@ class Main extends Component {
 
   render() {
     console.log("Main render es invocado");
-    const HomePage = () => {
+    /*const HomePage = () => {
       return (
         <Home/>
       );
-    };
+    };*/
 
-    const ItemWithId = ({match}) => {
-      return(
-        <ItemDetail item={this.state.items.filter((item) => item.id === parseInt(match.params.itemId,10))[0]}
-                    comments={this.state.comments.filter((comment) => comment.itemId === parseInt(match.params.itemId,10))} />
+    const ItemWithId = (props) => {
+      console.log(props.match);
+      const {itemId} = useParams();
+      return (
+        <ItemDetail item={this.state.items.filter((item) => item.id === parseInt(itemId, 10))[0]}
+                    comments={this.state.comments.filter((comment) => comment.itemId === parseInt(itemId, 10))}/>
       );
     };
 
@@ -46,18 +50,20 @@ class Main extends Component {
       <div>
         <Header/>
         <Routes>
-          <Route path='/home' element={<Home
-            item={this.state.items.filter(item => item.featured)[0]}
-            employee={this.state.employees.filter(employee => employee.featured)[0]}
-          />
+          <Route path='/home' element={
+            <Home item={this.state.items.filter(item => item.featured)[0]}
+                  employee={this.state.employees.filter(employee => employee.featured)[0]}/>
           }/>
-          <Route exact path='/catalog' element={<Catalog items={this.state.items}/>}>
-            <Route path=':itemId' component={ItemWithId}/>
+          <Route exact path='catalog' element={<Catalog items={this.state.items}/>}>
           </Route>
+          <Route path='catalog/:itemId' element={<ItemWithId/>}/>
           <Route exact path='/contactus' element={<Contact/>}/>
           <Route
             path="*"
-            element={<HomePage/>}/>
+            element={<Home
+              item={this.state.items.filter(item => item.featured)[0]}
+              employee={this.state.employees.filter(employee => employee.featured)[0]}
+            />}/>
         </Routes>
         <Footer/>
       </div>

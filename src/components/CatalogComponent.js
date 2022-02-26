@@ -1,6 +1,6 @@
 import React from 'react';
 import {Breadcrumb, Card} from "react-bootstrap";
-import {Link, Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function RenderCatalogItem({item}) {
   return (
@@ -22,7 +22,6 @@ const Catalog = (props) => {
     return (
       <div key={item.id} className="col-12 col-md-5 m-1">
         <RenderCatalogItem item={item}/>
-        {/*<Outlet/>*/}
       </div>
     );
   });

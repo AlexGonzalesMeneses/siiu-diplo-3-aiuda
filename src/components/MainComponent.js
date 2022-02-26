@@ -2,9 +2,7 @@ import React, {Component} from "react";
 import {ITEMS} from "../shared/items";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {useRouteMatch} from "react-router-dom";
-import {useParams} from "react-router-dom";
+import {Route, Routes, useParams} from "react-router-dom";
 import Home from "./HomeComponent";
 import Catalog from "./CatalogComponent";
 import Contact from "./ContactComponent";
@@ -56,7 +54,12 @@ class Main extends Component {
           }/>
           <Route exact path='catalog' element={<Catalog items={this.state.items}/>}>
           </Route>
+          {/*<Route path='catalog/:itemId' element={<ItemWithId/>}/>*/}
+
           <Route path='catalog/:itemId' element={<ItemWithId/>}/>
+
+
+
           <Route exact path='/contactus' element={<Contact/>}/>
           <Route
             path="*"

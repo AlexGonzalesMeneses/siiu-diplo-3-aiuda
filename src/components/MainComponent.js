@@ -13,14 +13,9 @@ function Main() {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
-      <CatalogComponent
-        items={ITEMS}
-        onClick={(item) => {
-          handleItemSelect(item);
-        }}
-      />
+      <CatalogComponent items={ITEMS} onClick={handleItemSelect} />
       <ItemDetail item={selectedItem} />
       <Footer />
     </div>

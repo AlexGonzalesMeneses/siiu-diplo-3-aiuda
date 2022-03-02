@@ -1,14 +1,35 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Breadcrumb, Card, Col, Container, Row} from "react-bootstrap";
+import {Breadcrumb, Card, Col, Container, Figure, Row} from "react-bootstrap";
 
 function About(props) {
 
-  const employees = props.employees.map((employee) => {
+  const RenderEmployees = (props) => {
     return (
-      <p>Employee {employee.name}</p>
+      props.employees.map((employee) => {
+        return (
+          <Row className="m-1" key={employee.id}>
+            <Col xs={12} sm={2}>
+              <Figure>
+                <Figure.Image src={employee.image} alt={employee.name}
+                              width={128}
+                              heigth={128}>
+                </Figure.Image>
+              </Figure>
+            </Col>
+            <Col xs={12} sm={10}>
+              <Figure>
+                <Figure.Caption>
+                  <p>{employee.name}</p>
+                  <p>{employee.jobPosition}</p>
+                </Figure.Caption>
+              </Figure>
+            </Col>
+          </Row>
+        );
+      })
     );
-  });
+  };
 
   return (
     <Container>
@@ -31,7 +52,8 @@ function About(props) {
           <p>La Universidad toma parte activa en el estudio y discusión de los más candentes problemas, como la
             nacionalización de las minas, la reforma agraria, el voto universal, los derechos de los pueblos
             originarios, la ecología y las más apremiantes necesidades regionales. De esta manera
-            la <em><b>AUTONOMIA</b></em> se abre a ideas nuevas e inquietudes patrióticas, creando una atmósfera espiritual
+            la <em><b>AUTONOMIA</b></em> se abre a ideas nuevas e inquietudes patrióticas, creando una atmósfera
+            espiritual
             frente al dogmatismo y a la intolerancia.</p>
         </Col>
         <Col xs={12} md={5}>
@@ -68,15 +90,11 @@ function About(props) {
         </Col>
       </Row>
       <Row>
-        <Col xs={12}>
+        <Col xs={12} className="mt-3">
           <h2>Empleados</h2>
         </Col>
       </Row>
-      <Row>
-        <Col xs={12}>
-            {employees}
-        </Col>
-      </Row>
+      <RenderEmployees employees={props.employees}/>
     </Container>
   );
 }

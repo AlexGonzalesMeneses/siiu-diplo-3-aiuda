@@ -9,6 +9,7 @@ import Contact from "./ContactComponent";
 import {COMMENTS} from "../shared/comments";
 import {EMPLOYEES} from "../shared/employees";
 import ItemDetail from "./ItemdetailComponent";
+import About from "./AboutComponent";
 
 class Main extends Component {
 
@@ -55,12 +56,9 @@ class Main extends Component {
           <Route exact path='catalog' element={<Catalog items={this.state.items}/>}>
           </Route>
           {/*<Route path='catalog/:itemId' element={<ItemWithId/>}/>*/}
-
           <Route path='catalog/:itemId' element={<ItemWithId/>}/>
-
-
-
           <Route exact path='/contactus' element={<Contact/>}/>
+          <Route exact path='/aboutus' element={<About employees={this.state.employees}/>}/>
           <Route
             path="*"
             element={<Home

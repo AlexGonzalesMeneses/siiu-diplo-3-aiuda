@@ -2,8 +2,7 @@ import React, {Component} from "react";
 import {ITEMS} from "../shared/items";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {useRouteMatch} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {useParams} from "react-router-dom";
 import Home from "./HomeComponent";
 import Catalog from "./CatalogComponent";
@@ -11,6 +10,7 @@ import Contact from "./ContactComponent";
 import {COMMENTS} from "../shared/comments";
 import {EMPLOYEES} from "../shared/employees";
 import ItemDetail from "./ItemdetailComponent";
+import About from "./AboutComponent";
 
 class Main extends Component {
 
@@ -58,6 +58,7 @@ class Main extends Component {
           </Route>
           <Route path='catalog/:itemId' element={<ItemWithId/>}/>
           <Route exact path='/contactus' element={<Contact/>}/>
+          <Route exact path='/aboutus' element={<About employees={this.state.employees}/>}/>
           <Route
             path="*"
             element={<Home

@@ -15,10 +15,50 @@ class Contact extends React.Component {
       email: '',
       agree: false,
       contactType: 'Tel.',
-      message: ''
+      message: '',
+      touched: {
+        firstname: false,
+        lastname: false,
+        telnum: false,
+        email: false
+      }
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleBlur = (field) => (evt) => {
+    this.setState({
+      touched: {...this.state.touched, [field]: true},
+    });
+  };
+
+  validate(firstname, lastname, telnum, email) {
+    const errors = {
+      firstname: '',
+      lastname: '',
+      telnum: '',
+      email: ''
+    };
+
+    if (this.state.touched.firstname && firstname.length < 3)
+      errors.firstname = 'First Name should be >= 3 characters';
+    else if (this.state.touched.firstname && firstname.length > 10)
+      errors.firstname = 'First Name should be <= 10 characters';
+
+    if (this.state.touched.lastname && lastname.length < 3)
+      errors.lastname = 'Last Name should be >= 3 characters';
+    else if (this.state.touched.lastname && lastname.length > 10)
+      errors.lastname = 'Last Name should be <= 10 characters';
+
+    const reg = /^\d+$/;
+    if (this.state.touched.telnum && !reg.test(telnum))
+      errors.telnum = 'Tel. Number should contain only numbers';
+
+    if (this.state.touched.email && email.split('').filter(x => x === '@').length !== 1)
+      errors.email = 'Email should contain a @';
+
+    return errors;
   }
 
   handleInputChange(event) {
@@ -39,6 +79,7 @@ class Contact extends React.Component {
   }
 
   render() {
+    const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
     return (
       <Container>
         <Row>
@@ -87,15 +128,20 @@ class Contact extends React.Component {
             <h3>Envia tu Comentario</h3>
           </Col>
           <Col xs={12} md={9}>
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Group className="mb-3" controlId='firstname'> {/*controlId is label htmlFor and input id*/}
-                <Form.Label column htmlFor="firstname" md={2}>Nombre</Form.Label>
-                <Col md={10}>
+            <Form noValidate onSubmit={this.handleSubmit}>
+              <Form.Group as={Col} md={10} className="mb-3" controlId='firstname'> {/*controlId is label htmlFor and input id*/}
+                <Form.FloatingLabel column htmlFor="firstname" md={2}
+                                    label='Nombre'>
                   <Form.Control type="text" id="firstname" name="firstname"
                                 placeholder="Nombre"
                                 value={this.state.firstname}
-                                onChange={this.handleInputChange}/>
-                </Col>
+                                isValid={errors.firstname === ''}
+                                isInvalid={errors.firstname !== ''}
+                                onBlur={this.handleBlur('firstname')}
+                                onChange={this.handleInputChange}
+                  />
+                  <Form.Control.Feedback type="invalid">{errors.firstname}</Form.Control.Feedback>
+                </Form.FloatingLabel>
               </Form.Group>
               <Form.Group className="mb-3" controlId='lastname'>
                 <Form.Label md={2}>Apellido</Form.Label>
@@ -104,7 +150,11 @@ class Contact extends React.Component {
                                 placeholder="Apellido"
                                 size='sm'
                                 value={this.state.lastname}
+                                isValid={errors.lastname === ''}
+                                isInvalid={errors.lastname !== ''}
+                                onBlur={this.handleBlur('lastname')}
                                 onChange={this.handleInputChange}/>
+                  <Form.Control.Feedback type="invalid">{errors.lastname}</Form.Control.Feedback>
                 </Col>
               </Form.Group>
               <Form.Group as={Row} controlId='telnum'>
@@ -114,7 +164,12 @@ class Contact extends React.Component {
                                 pattern="[0-9]{3}-[0-9]{8}"
                                 placeholder="591-xxxxxxxx"
                                 value={this.state.telnum}
+                                isValid={errors.telnum === ''}
+                                isInvalid={errors.telnum !== ''}
+                                onBlur={this.handleBlur('telnum')}
                                 onChange={this.handleInputChange}/>
+                  <Form.Control.Feedback type='invalid'>{errors.telnum}</Form.Control.Feedback>
+                  <Form.Control.Feedback type='valid'>Telefono valido</Form.Control.Feedback>
                 </Col>
               </Form.Group>
               <Form.Group as={Row} controlId='email'>
@@ -123,7 +178,11 @@ class Contact extends React.Component {
                   <Form.Control type="email" name="email"
                                 placeholder="name@example.com"
                                 value={this.state.email}
+                                isValid={errors.email === ''}
+                                isInvalid={errors.email !== ''}
+                                onBlur={this.handleBlur('email')}
                                 onChange={this.handleInputChange}/>
+                  <Form.Control.Feedback type='invalid'>{errors.email}</Form.Control.Feedback>
                 </Col>
                 <Form.Text id="email" muted>
                   Nunca compartiremos tu email con nadie mas.

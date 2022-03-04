@@ -9,7 +9,7 @@ function About(props) {
       props.employees.map((employee) => {
         return (
           <Row className="m-1" key={employee.id}>
-            <Col xs={12} sm={2}>
+            <Col xs={12} sm={2} >
               <Figure>
                 <Figure.Image src={employee.image} alt={employee.name}
                               width={128}

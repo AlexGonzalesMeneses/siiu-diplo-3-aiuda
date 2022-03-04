@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Container, Form, Modal, Nav, Navbar} from "react-bootstrap";
+import {Button, Col, Container, Form, Modal, Nav, Navbar, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {solid} from '@fortawesome/fontawesome-svg-core/import.macro';
 import {Link} from "react-router-dom";
@@ -78,14 +78,14 @@ class Header extends Component {
           </Container>
         </Navbar>
         <div className='bg-primary bg-opacity-75 fa-inverse jumbotron'>
-          <div className="container">
-            <div className="row row-header">
-              <div className="col-12">
+          <Container>
+            <Row className="row-header">
+              <Col xs={12}>
                 <h1>Sistema Integrado de Informacion Universitario</h1>
                 <p>El SIIU integra la informacion de los diferentes sistemas de la UMSS!!!</p>
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </div>
         <Modal show={this.state.show} onHide={this.toggleModal}>
           <Modal.Header closeButton>

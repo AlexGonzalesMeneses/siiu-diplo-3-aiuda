@@ -1,5 +1,5 @@
 import React from 'react';
-import {Breadcrumb, Card} from "react-bootstrap";
+import {Breadcrumb, Card, Col, Container, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 function RenderCatalogItem({item}) {
@@ -26,21 +26,21 @@ const Catalog = (props) => {
     );
   });
   return (
-    <div className="container">
-      <div className="row">
+    <Container>
+      <Row>
         <Breadcrumb>
           <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
           <Breadcrumb.Item active>Catalog</Breadcrumb.Item>
         </Breadcrumb>
-        <div className="col-12">
+        <Col xs={12}>
           <h3>Catalog</h3>
           <hr/>
-        </div>
-      </div>
-      <div className="row">
+        </Col>
+      </Row>
+      <Row>
         {catalog}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
 

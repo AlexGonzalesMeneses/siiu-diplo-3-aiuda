@@ -1,7 +1,7 @@
 import React from 'react';
 import {Breadcrumb, Button, Col, Container, Form, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {solid, brands} from '@fortawesome/fontawesome-svg-core/import.macro';
+import {brands, solid} from '@fortawesome/fontawesome-svg-core/import.macro';
 import {Link} from "react-router-dom";
 
 class Contact extends React.Component {
@@ -116,7 +116,7 @@ class Contact extends React.Component {
             <div className="btn-group" role="group">
               <a role="button" className="btn btn-primary" href="tel:+591 4220717">
                 <FontAwesomeIcon icon={solid('phone')} size='lg'/> Call</a>
-              <a role="button" className="btn btn-info">
+              <a role="button" className="btn btn-info" href='tel:+591 4220717'>
                 <FontAwesomeIcon icon={brands('skype')} size='lg'/> Skype</a>
               <a role="button" className="btn btn-success" href="mailto:info@siiu.umss.edu.bo">
                 <FontAwesomeIcon icon={solid('envelope')} size='lg'/> Email</a>

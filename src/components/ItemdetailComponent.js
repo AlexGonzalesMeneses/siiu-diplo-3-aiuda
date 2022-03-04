@@ -1,5 +1,5 @@
 import React from 'react';
-import {Breadcrumb, Card, Container, Row} from "react-bootstrap";
+import {Breadcrumb, Card, Col, Container, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 const ItemDetail = (props) => {
@@ -16,17 +16,17 @@ const ItemDetail = (props) => {
         </div>
       </Row>
 
-      <div className="row">
-        <div className="col-12 col-md-5 m-1">
+      <Row>
+        <Col xs={12} md={5} className="m-1">
           {/*{this.renderItem(this.props.item)}*/}
           <RenderItem item={props.item}/>
-        </div>
-        <div className="col-12 col-md-5 m-1">
+        </Col>
+        <Col xs={12} md={5} className="m-1">
           {/*{this.renderComments(this.props.item != null ? this.props.item.comments : null)}*/}
           {/*<RenderComments comments={props.item != null ? props.item.comments : null}/>*/}
           <RenderComments comments={props.item?.comments}/>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </Container>
   );
 }

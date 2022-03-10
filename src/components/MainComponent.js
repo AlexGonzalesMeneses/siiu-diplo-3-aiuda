@@ -1,75 +1,53 @@
-import React, {Component} from "react";
-import {ITEMS} from "../shared/items";
+import React from "react";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
-import {Route, Routes} from "react-router-dom";
-import {useParams} from "react-router-dom";
+import {Route, Routes, useParams} from "react-router-dom";
 import Home from "./HomeComponent";
 import Catalog from "./CatalogComponent";
 import Contact from "./ContactComponent";
-import {COMMENTS} from "../shared/comments";
-import {EMPLOYEES} from "../shared/employees";
 import ItemDetail from "./ItemdetailComponent";
 import About from "./AboutComponent";
+import {useSelector} from "react-redux";
+import {selectEmployees} from "../features/employees/employeesSlice";
+import {selectItems} from "../features/items/itemsSlice";
+import {selectComments} from "../features/comments/commentsSlice";
 
-class Main extends Component {
-
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      items: ITEMS,
-      comments: COMMENTS,
-      employees: EMPLOYEES
-
-    }
-    console.log("Main constructor es invocado");
-  }
-
-  componentDidMount() {
-    console.log("Main componentDidMount es invocado");
-  }
-
-  render() {
-    console.log("Main render es invocado");
-    /*const HomePage = () => {
-      return (
-        <Home/>
-      );
-    };*/
-
-    const ItemWithId = (props) => {
-      console.log(props.match);
-      const {itemId} = useParams();
-      return (
-        <ItemDetail item={this.state.items.filter((item) => item.id === parseInt(itemId, 10))[0]}
-                    comments={this.state.comments.filter((comment) => comment.itemId === parseInt(itemId, 10))}/>
-      );
-    };
+export function Main(){
+  const employees = useSelector(selectEmployees);
+  const items = useSelector(selectItems);
+  const comments = useSelector(selectComments);
+  const ItemWithId = (props) => {
+    console.log(props.match);
+    const {itemId} = useParams();
+    return (
+      <ItemDetail item={items.filter((item) => item.id === parseInt(itemId, 10))[0]}
+                  comments={comments.comments.filter((comment) => comment.itemId === parseInt(itemId, 10))}/>
+    );
+  };
 
     return (
       <div>
         <Header/>
         <Routes>
           <Route path='/home' element={
-            <Home item={this.state.items.filter(item => item.featured)[0]}
-                  employee={this.state.employees.filter(employee => employee.featured)[0]}/>
+            <Home item={items.filter(item => item.featured)[0]}
+                  employee={employees.filter(employee => employee.featured)[0]}/>
           }/>
-          <Route exact path='catalog' element={<Catalog items={this.state.items}/>}>
+          <Route exact path='catalog' element={<Catalog items={items}/>}>
           </Route>
           <Route path='catalog/:itemId' element={<ItemWithId/>}/>
           <Route exact path='/contactus' element={<Contact/>}/>
-          <Route exact path='/aboutus' element={<About employees={this.state.employees}/>}/>
+          <Route exact path='/aboutus' element={<About employees={employees}/>}/>
           <Route
             path="*"
             element={<Home
-              item={this.state.items.filter(item => item.featured)[0]}
-              employee={this.state.employees.filter(employee => employee.featured)[0]}
+              item={items.filter(item => item.featured)[0]}
+              employee={employees.filter(employee => employee.featured)[0]}
             />}/>
         </Routes>
         <Footer/>
       </div>
     );
-  }
 }
 
 export default Main;

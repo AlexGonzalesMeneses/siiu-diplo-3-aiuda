@@ -5,10 +5,10 @@ const Home = (props) => {
   return (
     <Container>
       <Row className="align-items-start">
-        <Col xs={12} className="m-1">
+        <Col xs={12} md={5} className="m-1">
           <RenderCard item={props.item}/>
         </Col>
-        <Col xs={12} className="m-1">
+        <Col xs={12} md={5} className="m-1">
           <RenderCard item={props.employee}/>
         </Col>
       </Row>

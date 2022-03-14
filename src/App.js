@@ -1,9 +1,9 @@
-import {Component} from "react";
-import Main from "./components/MainComponent";
+import { Component } from 'react';
+import Main from './components/MainComponent';
 import './App.css';
-import {BrowserRouter} from "react-router-dom";
-import {Provider} from "react-redux";
-import {store} from "./app/store";
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
 class App extends Component {
   render() {
@@ -11,10 +11,9 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <div>
-            <Main/>
+            <Main />
           </div>
         </BrowserRouter>
-
       </Provider>
     );
   }

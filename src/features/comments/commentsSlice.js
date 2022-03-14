@@ -1,10 +1,11 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {COMMENTS} from "../../shared/comments";
+import { createSlice } from '@reduxjs/toolkit';
+import { COMMENTS } from '../../shared/comments';
 
 const initialState = {
   comments: COMMENTS,
   value: 0,
-  status: 'idle'
+  status: 'idle',
+  currentComment: {},
 };
 
 export const commentsSlice = createSlice({
@@ -18,12 +19,15 @@ export const commentsSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       state.value += 1;
-    }
+    },
+    addComment: (state, action) => {
+      state.comments.push(action.payload);
+      state.currentComment = action.payload;
+    },
   },
-
 });
 
-export const {increment} = commentsSlice.actions;
+export const { increment, currentComment, addComment } = commentsSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

@@ -99,6 +99,7 @@ const NewContact = (props) => {
         message: state.message,
       })
     );
+    
     props.history.push('/contact');
   };
 
